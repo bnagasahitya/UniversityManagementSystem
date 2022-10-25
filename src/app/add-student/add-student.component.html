@@ -1,0 +1,30 @@
+<H1>Add Students</H1>
+
+<div class="container">
+  <!-- <div class="alert alert-warning" *ngIf="studentForm.dirty && studentForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="studentForm.dirty && date.invalid">Enter valid Target Date</div>
+  <div class="alert alert-warning" *ngIf="studentForm.dirty && name.invalid">Enter atleast 5 characters in Description</div> -->
+  
+  <form (ngSubmit)="!studentForm.invalid" #studentForm="ngForm">
+    <fieldset class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" 
+                name="name" required="required" minlength="5">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Course</label>
+        <input type="text"
+              class="form-control" 
+                  name="course" required="required" minlength="5">
+      </fieldset>
+    <!-- <fieldset class="form-group">
+        <label>Target Date</label>
+        <input type="date" #date="ngModel"
+        [ngModel]="student.date | date:'yyyy-MM-dd' "
+        (ngModelChange)="student.date = $event"
+        class="form-control" name="targetDate" required="required" >
+    </fieldset> -->
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>  
+</div>
