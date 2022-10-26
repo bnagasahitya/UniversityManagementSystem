@@ -1,3 +1,4 @@
+import { FacultyComponent } from './faculty/faculty.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { CoursesComponent } from './courses/courses.component';
 import { StudentsComponent } from './students/students.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent},
    { path: 'students', component: StudentsComponent },
    { path: 'courses', component: CoursesComponent },
+   { path: 'faculty', component: FacultyComponent },
   // { path: 'logout', component: LogoutComponent,\  },
   { path: 'add', component: AddStudentComponent },
 

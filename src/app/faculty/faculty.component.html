@@ -1,0 +1,32 @@
+<h1> Faculty list</h1> 
+<button routerLink="/add" class="btn btn-success">Add</button>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Faculty Id</th>
+            <th> Faculty name</th>
+            <th>Course Teaching </th>
+          
+            <th> Update</th>
+            <th> Delete</th>
+        </tr>
+    
+    </thead>
+    <tbody>
+
+    <tbody>
+        <tr *ngFor = "let faculty of faculty">
+<td> {{faculty.id}}</td>
+<td> {{faculty.name}}</td>
+<td> {{faculty.coursename}}</td>
+<td><button class="btn btn-success">Update</button></td>
+<td><button class="btn  btn-warning">Delete</button></td>
+<!-- <td><button (click)="updateFaculty(faculty.id)" class="btn btn-success">Update</button></td>
+<td><button (click)="deleteFaculty(faculty.id)" class="btn btn-warning">Delete</button></td> -->
+        </tr>
+    </tbody>
+  </table>
+
+
+</div>
