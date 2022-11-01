@@ -1,5 +1,6 @@
 <h1> Courses list</h1> 
-<button routerLink="/add" class="btn btn-success">Add</button>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<button routerLink="/add" class="btn btn-success" (click)="addCourse()">Add</button>
 <div class="container">
   <table class="table">
     <thead>
@@ -17,11 +18,14 @@
 
     <tbody>
         <tr *ngFor = "let course of course">
-<td> {{course.id}}</td>
-<td> {{course.name}}</td>
-<td> {{course.description}}</td>
-<td><button class="btn btn-success">Update</button></td>
-<td><button class="btn  btn-warning">Delete</button></td>
+            <td> {{course.id}}</td> 
+            <td> {{course.name}}</td>
+            <td> {{course.type}}</td>
+            <td> {{course.preRequest}}</td>
+            <td> {{course.duration}}</td>
+            <td> {{course.credits}}</td>
+            <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteCourse(course.id, course)" class="btn btn-warning">Delete</button></td>
 <!-- <td><button (click)="updateCourse(course.id)" class="btn btn-success">Update</button></td>
 <td><button (click)="deleteCourse(course.id)" class="btn btn-warning">Delete</button></td> -->
         </tr>

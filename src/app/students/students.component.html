@@ -1,13 +1,16 @@
 <h1> Students list</h1> 
-<button routerLink="/add" class="btn btn-success">Add</button>
+<button (click) = "addStudent()" routerLink="/add" class="btn btn-success">Add</button>
 <div class="container">
   <table class="table">
     <thead>
       <tr>
             <th> Student Id</th>
-            <th> Student name</th>
-            <th> Student course</th>
-            <th> Student Date</th>
+            <th> Student Name</th>
+            <th> Student DOB</th>
+            <th> Student Email</th>
+            <th> Student Address</th>
+            <th> Student Phone Number</th>
+<th> Student Registration</th>
             <th> Update</th>
             <th> Delete</th>
         </tr>
@@ -19,12 +22,17 @@
         <tr *ngFor = "let student of student">
 <td> {{student.id}}</td>
 <td> {{student.name}}</td>
-<td> {{student.course}}</td>
-<td> {{student.date | date | uppercase}}</td>
-<td><button class="btn btn-success">Update</button></td>
-<td><button class="btn  btn-warning">Delete</button></td>
-<!-- <td><button (click)="updateStudent(student.id)" class="btn btn-success">Update</button></td>
-<td><button (click)="deleteStudent(student.id)" class="btn btn-warning">Delete</button></td> -->
+<td> {{student.DOB}}</td>
+<td> {{student.Email}}</td>
+<td> {{student.address}}</td>
+<td> {{student.phone}}</td>
+<td>{{student.registration}}</td>
+
+
+<!-- <td><button class="btn btn-success">Update</button></td>
+<td><button class="btn  btn-warning">Delete</button></td> -->
+<td><button (click)="updateStudent(student.id)" class="btn btn-success">Update</button></td>
+<td><button (click)="deleteStudent(student.id,student)" class="btn btn-warning">Delete</button></td>
         </tr>
     </tbody>
   </table>

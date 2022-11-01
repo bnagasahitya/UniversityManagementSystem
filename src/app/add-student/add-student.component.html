@@ -1,30 +1,29 @@
-<H1>Add Students</H1>
-
-<div class="container">
-  <!-- <div class="alert alert-warning" *ngIf="studentForm.dirty && studentForm.invalid">Enter valid values</div>
-  <div class="alert alert-warning" *ngIf="studentForm.dirty && date.invalid">Enter valid Target Date</div>
-  <div class="alert alert-warning" *ngIf="studentForm.dirty && name.invalid">Enter atleast 5 characters in Description</div> -->
-  
-  <form (ngSubmit)="!studentForm.invalid" #studentForm="ngForm">
-    <fieldset class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" 
-                name="name" required="required" minlength="5">
-    </fieldset>
-    <fieldset class="form-group">
-        <label>Course</label>
-        <input type="text"
-              class="form-control" 
-                  name="course" required="required" minlength="5">
-      </fieldset>
-    <!-- <fieldset class="form-group">
-        <label>Target Date</label>
-        <input type="date" #date="ngModel"
-        [ngModel]="student.date | date:'yyyy-MM-dd' "
-        (ngModelChange)="student.date = $event"
-        class="form-control" name="targetDate" required="required" >
-    </fieldset> -->
-
-    <button type="submit" class="btn btn-success">Save</button>
-  </form>  
-</div>
+<!-- constructor(public id:number,public name: string,public type:string, public preRequest:string, public duration: string, public credits: number){ -->
+  <h1> Students Add/Update</h1>
+  <div class = "container">
+  <fieldset class = "form-group">
+      <label>Student Name</label>
+      <input type = "text"[(ngModel)] = "student.name" class = "form-control" name = "name" required = "required">
+  </fieldset>
+  <fieldset class = "form-group">
+      <label>Student DOB</label> 
+  <input type = "text" [(ngModel)] = "student.DOB" class = "form-control" name = "DOB" required = "required">
+  </fieldset>
+  <fieldset class = "form-group">
+      <label>Student Email</label> 
+  <input type = "text" [(ngModel)] = "student.Email" class = "form-control" name = "Email" required = "required">
+  </fieldset>
+  <fieldset class = "form-group">
+      <label>Student Address</label> 
+  <input type = "text" [(ngModel)] = "student.address" class = "form-control" name = "address" required = "required">
+  </fieldset>
+  <fieldset class = "form-group">
+      <label>Student Phone</label> 
+  <input type = "text" [(ngModel)] = "student.phone" class = "form-control" name = "phone" required = "required">
+  </fieldset>
+  <fieldset class = "form-group">
+    <label>Student Registration</label> 
+<input type = "text" [(ngModel)] = "student.registration" class = "form-control" name = "registration" required = "required">
+</fieldset>
+  <button type="submit" class="btn btn-success" (click)="saveStudentDetails()">Save</button>
+  </div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,6 +13,9 @@ import { FooterComponent } from './footer/footer.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { FacultyComponent } from './faculty/faculty.component';
+import { AddCourseComponent } from './courses/add-course/add-course.component';
+import { DepartmentComponent } from './department/department.component';
+import { AddDepartmentComponent } from './department/add-department/add-department.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,16 @@ import { FacultyComponent } from './faculty/faculty.component';
     FooterComponent,
     CoursesComponent,
     AddStudentComponent,
-    FacultyComponent
+    FacultyComponent,
+    AddCourseComponent,
+    DepartmentComponent,
+    AddDepartmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

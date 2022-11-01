@@ -1,53 +1,50 @@
-import { StudentService } from './../student.service';
-import { StudentsComponent } from './../students/students.component';
+import { DepartmentService } from './../department.service';
 import { Component, OnInit } from '@angular/core';
+import { Department } from '../department.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Student } from '../students/students.component';
 
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.css']
+  selector: 'app-add-department',
+  templateUrl: './add-department.component.html',
+  styleUrls: ['./add-department.component.css']
 })
-export class AddStudentComponent implements OnInit {
+export class AddDepartmentComponent implements OnInit {
 
   id = 0;
-  student: Student = {
+  department: Department = {
     id:this.id,
     name: '',
-    DOB:'',
-    Email:'',
-    address:'',
-    phone: 0,
-    registration: ''  };
+    description:'',
+    location:'',
+    };
   constructor(
-    private studentService: StudentService,
+    private departmentService: DepartmentService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-     this.student = new Student(this.id,'','','','',0,'');
+     this.department = new Department(this.id,'','','');
     if(this.id!=-1) {
-      this.studentService.retrieveStudent(this.id)
+      this.departmentService.retrieveDepartment(this.id)
           .subscribe (
             response =>{
               console.log(response);
-              this.student = response;
+              this.department = response;
             }
             
             // data => {this.course = data;}
           )
     }
   }
-  saveStudentDetails(){
+  saveDepartmentDetails(){
     if(this.id == -1) { //=== ==
-      this.studentService.addStudent(this.student)
+      this.departmentService.addDepartment(this.department)
           .subscribe (
             data => {
               console.log(data);
-              this.router.navigate(['students'])
+              this.router.navigate(['departments'])
             }
           )
     }
@@ -61,11 +58,11 @@ export class AddStudentComponent implements OnInit {
       //   //     )
       // }
        else {
-        this.studentService.updateStudent(this.id, this.student)
+        this.departmentService.updateDepartment(this.id, this.department)
             .subscribe (
               data => {
                 console.log(data)
-                this.router.navigate(['students'])
+                this.router.navigate(['departments'])
               }
             )
       }
