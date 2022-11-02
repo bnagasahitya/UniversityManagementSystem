@@ -1,4 +1,4 @@
-package com.university.management.controllers;
+package management.controllers;
 
 import com.university.management.model.Course;
 import com.university.management.model.Department;
@@ -24,7 +24,7 @@ public class RegistrationController {
     private RegistrationRepo repo;
     @Autowired
 	StudentRepo studentRepository;
-    
+
 
 //    public void createRegister(@RequestBody Registration user, @PathVariable( name = "id") Integer id) {
 //
@@ -35,12 +35,12 @@ public class RegistrationController {
     @PostMapping(value = "/register/{id}")
 	public ResponseEntity<Registration> createRegister(@PathVariable("id") int id,@RequestBody Registration registrationRequest) {
 		try {
-			
+
 			Registration newRegistration = studentRepository.findById(id).map(student -> {
 				registrationRequest.setStudent(student);
 			      return repo.save(registrationRequest);
 			    }).orElseThrow(() -> new Exception("Not found Course with id = " + id));
-			
+
 			return new ResponseEntity<>(newRegistration, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

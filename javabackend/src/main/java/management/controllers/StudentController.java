@@ -1,4 +1,4 @@
-package com.university.management.controllers;
+package management.controllers;
 
 
 import com.university.management.model.Course;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @RestController
 public class StudentController {
 
-	
+
     @Autowired
     private StudentRepo repo;
     @CrossOrigin(origins = "http://localhost:4200")
@@ -27,7 +27,7 @@ public class StudentController {
         repo.save(user);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200") 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value = "/updatestudent/{id}")
     public Student updateStudent(@RequestBody Student user,@PathVariable( name = "id" ) Integer id) {
 

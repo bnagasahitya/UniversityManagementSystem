@@ -1,8 +1,9 @@
-package com.university.management.model;
+package management.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.university.management.model.Student;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -26,14 +27,14 @@ public class Registration {
 
     @Column(name = "content")
     private String content;
-    
-    
+
+
     @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "Student_ID", nullable = false)
 //    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //    @JoinColumn(name = "Student_ID", referencedColumnName = "Student_ID")
     @JsonIgnore
-    private Student student;
+    private com.university.management.model.Student student;
 
     public Integer getId() {
         return id;
@@ -67,7 +68,7 @@ public class Registration {
         this.content = content;
     }
 
-    public Student getStudent() {
+    public com.university.management.model.Student getStudent() {
         return student;
     }
 
