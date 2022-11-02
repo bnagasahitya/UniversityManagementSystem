@@ -11,22 +11,22 @@ export class DepartmentService {
  
   constructor(private http: HttpClient) { }
 
-  retrieveDepartments(){
+  retrieveDepartments(){ 
 
     return this.http.get<Department[]>(`${API_URL}/departments`);
   }
   deleteDepartment(id: any, department:Department){
-    return this.http.put(`${API_URL}/delete/department/${id}`,null);
+    return this.http.post(`${API_URL}/deletedepartment/${id}`,null);
   }
-  updateDepartment(id: any, department: Department){
-    return this.http.put(`${API_URL}/updatedepartment/${id}/cid`,department);
+  updateDepartment(id: any, department: Department, cid: any){
+    return this.http.put(`${API_URL}/updatedepartment/${id}/${cid}`,department);
   }
   retrieveDepartment(id: any){
     return this.http.get<Department>(`${API_URL}/department/${id}`);
   }
-  addDepartment(department: Department){
+  addDepartment(department: Department, id: any){
     return this.http.post(
-              `${API_URL}/department`
+              `${API_URL}/createdepartment/${id}`
                 , department);
   }
 

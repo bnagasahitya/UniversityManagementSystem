@@ -12,10 +12,11 @@ export class AddDepartmentComponent implements OnInit {
 
   id = 0;
   department: Department = {
-    id:this.id,
-    name: '',
-    description:'',
+    departmentId:this.id,
+    departmentName: '',
+    deptDescription:'',
     location:'',
+    course_id: 0,
     };
   constructor(
     private departmentService: DepartmentService,
@@ -25,7 +26,7 @@ export class AddDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-     this.department = new Department(this.id,'','','');
+     this.department = new Department(this.id,'','','',9);
     if(this.id!=-1) {
       this.departmentService.retrieveDepartment(this.id)
           .subscribe (
@@ -40,7 +41,7 @@ export class AddDepartmentComponent implements OnInit {
   }
   saveDepartmentDetails(){
     if(this.id == -1) { //=== ==
-      this.departmentService.addDepartment(this.department)
+      this.departmentService.addDepartment(this.department, this.department.course_id)
           .subscribe (
             data => {
               console.log(data);
@@ -58,7 +59,7 @@ export class AddDepartmentComponent implements OnInit {
       //   //     )
       // }
        else {
-        this.departmentService.updateDepartment(this.id, this.department)
+        this.departmentService.updateDepartment(this.id, this.department, this.department.course_id)
             .subscribe (
               data => {
                 console.log(data)

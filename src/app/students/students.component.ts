@@ -2,7 +2,7 @@ import { StudentService } from './../student.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 export class Student{
-  constructor(public id:number,public name: string,public DOB:string, public Email:string, public address: string, public phone: number, public registration: string){
+  constructor(public id:number,public name: string,public studentDOB:string, public studentEmail:string, public studentAddress: string, public studentPhone: number, public registration: string){
 
   }
 }

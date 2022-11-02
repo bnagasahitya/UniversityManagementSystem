@@ -2,17 +2,20 @@
     <div class = "container">
         <fieldset class = "form-group">
             <label>Name</label>
-            <input type = "text"[(ngModel)] = "department.name" class = "form-control" name = "name" required = "required">
+            <input type = "text"[(ngModel)] = "department.departmentName" class = "form-control" name = "name" required = "required">
         </fieldset>
         <fieldset class = "form-group">
             <label>Description</label> 
-        <input type = "text" [(ngModel)] = "department.description" class = "form-control" name = "description" required = "required">
+        <input type = "text" [(ngModel)] = "department.deptDescription" class = "form-control" name = "description" required = "required">
         </fieldset>
         <fieldset class = "form-group">
             <label>Location</label> 
         <input type = "text" [(ngModel)] = "department.location" class = "form-control" name = "location" required = "required">
         </fieldset>
-       
+        <fieldset class = "form-group">
+            <label>Course ID</label> 
+        <input type = "text" [(ngModel)] = "department.course_id" class = "form-control" name = "course_id" required = "required">
+        </fieldset>
         
         <button type="submit" class="btn btn-success" (click)="saveDepartmentDetails()">Save</button>
         </div>

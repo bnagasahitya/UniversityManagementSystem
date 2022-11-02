@@ -16,6 +16,9 @@ import { FacultyComponent } from './faculty/faculty.component';
 import { AddCourseComponent } from './courses/add-course/add-course.component';
 import { DepartmentComponent } from './department/department.component';
 import { AddDepartmentComponent } from './department/add-department/add-department.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AddFacultyComponent } from './faculty/add-faculty/add-faculty.component';
+import { AddRegistrationComponent } from './registration/add-registration/add-registration.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AddDepartmentComponent } from './department/add-department/add-departme
     FacultyComponent,
     AddCourseComponent,
     DepartmentComponent,
-    AddDepartmentComponent
+    AddDepartmentComponent,
+    RegistrationComponent,
+    AddFacultyComponent,
+    AddRegistrationComponent
   ],
   imports: [
     BrowserModule,

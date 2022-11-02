@@ -1,3 +1,6 @@
+import { AddFacultyComponent } from './faculty/add-faculty/add-faculty.component';
+import { AddRegistrationComponent } from './registration/add-registration/add-registration.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { AddDepartmentComponent } from './department/add-department/add-department.component';
 import { DepartmentComponent } from './department/department.component';
 import { AddCourseComponent } from './courses/add-course/add-course.component';
@@ -19,11 +22,17 @@ const routes: Routes = [
    { path: 'courses', component: CoursesComponent },
 
    { path: 'faculty', component: FacultyComponent },
+   { path: 'addfaculty/:id', component: AddFacultyComponent },
+
    { path: 'departments', component: DepartmentComponent },
   // { path: 'logout', component: LogoutComponent,\  },
   { path: 'addstudent/:id', component: AddStudentComponent },
   { path: 'add/:id', component: AddCourseComponent },
   { path: 'adddepartment/:id', component: AddDepartmentComponent },
+  { path: 'registrations', component: RegistrationComponent },
+  { path: 'addregistration/:id', component: AddRegistrationComponent },
+
+
 
 
   { path: '**', component: ErrorComponent }

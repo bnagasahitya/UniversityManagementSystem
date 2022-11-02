@@ -1,0 +1,33 @@
+<h1> Registrations list</h1> 
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<button routerLink="/add" class="btn btn-success" (click)="addRegistration()">Add</button>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+            <th>Registration Id</th>
+            <th> Registration name</th>
+            <th>Registration Date </th>
+            <th>Registration Content </th>
+            <th> Update</th>
+            <th> Delete</th>
+        </tr>
+    
+    </thead>
+    <tbody>
+
+    <tbody>
+        <tr *ngFor = "let registration of registration">
+            <td> {{registration.id}}</td> 
+            <td> {{registration.registrationname}}</td>
+            <td> {{registration.registrationdate}}</td>
+            <td> {{registration.content}}</td>
+            <td> {{registration.student_Id}}</td>
+            <td><button (click)="updateRegistration(registration.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteRegistration(registration.id, registration)"class="btn btn-warning">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+</div>

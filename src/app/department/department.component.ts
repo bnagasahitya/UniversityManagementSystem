@@ -2,7 +2,7 @@ import { DepartmentService } from './department.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 export class Department{
-  constructor(public id:number,public name: string,public description:string, public location:string){
+  constructor(public departmentId:number,public departmentName: string,public deptDescription:string, public location:string, public course_id: number){
 
   }
 }
@@ -48,7 +48,7 @@ export class DepartmentComponent implements OnInit {
   updateDepartment(id: any){
     console.log(`update ${id}`)
     this.router.navigate(['adddepartment',id])
-    // this.courseService.updateCourse(id).subscribe (
+    // this.departmentService.updateDepartment(id, this.department).subscribe (
     //   response => {
     //     console.log(response);
     //     this.message = `Delete of Course ${id} Successful!`;
