@@ -1,12 +1,18 @@
 <h1> Faculty list</h1> 
-<button routerLink="/add" class="btn btn-success">Add</button>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<button routerLink="/add" class="btn btn-success" (click)="addFaculty()">Add</button>
 <div class="container">
   <table class="table">
     <thead>
       <tr>
             <th>Faculty Id</th>
             <th> Faculty name</th>
-            <th>Course Teaching </th>
+            <th>Faculty Gender </th>
+            <th>Faculty Address</th>
+            <th>Faculty Phone</th>
+            <th>Faculty Age</th>
+            <th>Course ID</th>
+            <th>Department ID</th>
             <th> Update</th>
             <th> Delete</th>
         </tr>
@@ -16,13 +22,16 @@
 
     <tbody>
         <tr *ngFor = "let faculty of faculty">
-<td> {{faculty.id}}</td>
-<td> {{faculty.name}}</td>
-<td> {{faculty.coursename}}</td>
-<td><button class="btn btn-success">Update</button></td>
-<td><button class="btn  btn-warning">Delete</button></td>
-<!-- <td><button (click)="updateFaculty(faculty.id)" class="btn btn-success">Update</button></td>
-<td><button (click)="deleteFaculty(faculty.id)" class="btn btn-warning">Delete</button></td> -->
+            <td> {{faculty.id}}</td> 
+            <td> {{faculty.name}}</td>
+            <td> {{faculty.gender}}</td>
+            <td> {{faculty.address}}</td>
+            <td> {{faculty.phone}}</td>
+            <td> {{faculty.age}}</td>
+            <td> {{faculty.course_id}}</td>
+            <td> {{faculty.department_id}}</td>
+            <td><button (click)="updateFaculty(faculty.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteFaculty(faculty.id, faculty)" class="btn btn-warning">Delete</button></td>
         </tr>
     </tbody>
   </table>

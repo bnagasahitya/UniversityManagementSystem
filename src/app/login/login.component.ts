@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     if(this.username==="admin" && this.password === '123') {
-this.router.navigate(['welcome', this.username])
+this.router.navigate(['welcome'])
   }
 
 

@@ -9,7 +9,6 @@
             <th> Registration name</th>
             <th>Registration Date </th>
             <th>Registration Content </th>
-            <th>Student ID </th>
             <th> Update</th>
             <th> Delete</th>
         </tr>
@@ -23,7 +22,6 @@
             <td> {{registration.name}}</td>
             <td> {{registration.date}}</td>
             <td> {{registration.content}}</td>
-            <td> {{registration.student_Id}}</td>
             <td><button (click)="updateRegistration(registration.id)" class="btn btn-success">Update</button></td>
             <td><button (click)="deleteRegistration(registration.id, registration)"class="btn btn-warning">Delete</button></td>
         </tr>

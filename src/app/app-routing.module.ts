@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: StudentsComponent  },//canActivate, RouteGuardService
@@ -25,15 +26,14 @@ const routes: Routes = [
    { path: 'addfaculty/:id', component: AddFacultyComponent },
 
    { path: 'departments', component: DepartmentComponent },
-  // { path: 'logout', component: LogoutComponent,\  },
+  { path: 'logout', component: LogoutComponent  },
   { path: 'addstudent/:id', component: AddStudentComponent },
   { path: 'add/:id', component: AddCourseComponent },
   { path: 'adddepartment/:id', component: AddDepartmentComponent },
   { path: 'registrations', component: RegistrationComponent },
   { path: 'addregistration/:id', component: AddRegistrationComponent },
-
-
-
+  { path: 'faculty', component: FacultyComponent },
+  { path: 'addfaculty/:id', component: AddFacultyComponent },
 
   { path: '**', component: ErrorComponent }
 

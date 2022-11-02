@@ -10,7 +10,7 @@ import { Student } from '../students/students.component';
   styleUrls: ['./add-student.component.css']
 })
 export class AddStudentComponent implements OnInit {
-
+  message: string | undefined;
   id = 0;
   student: Student = {
     id:this.id,
@@ -36,35 +36,27 @@ export class AddStudentComponent implements OnInit {
               console.log(response);
               this.student = response;
             }
-            
-            // data => {this.course = data;}
           )
     }
   }
+
   saveStudentDetails(){
     if(this.id == -1) { //=== ==
       this.studentService.addStudent(this.student)
           .subscribe (
             data => {
               console.log(data);
+              this.message = `Added Student Details of ID ${this.id} Successfully!`;
               this.router.navigate(['students'])
             }
           )
     }
-      // if(this.id == -1) { //=== ==
-      //   // this.courseService.createCourse(this.course)
-      //   //     .subscribe (
-      //   //       data => {
-      //   //         console.log(data)
-      //   //         this.router.navigate(['todos'])
-      //   //       }
-      //   //     )
-      // }
        else {
         this.studentService.updateStudent(this.id, this.student)
             .subscribe (
               data => {
                 console.log(data)
+                this.message = `Updated Student Details of ID ${this.id} Successfully!`;
                 this.router.navigate(['students'])
               }
             )

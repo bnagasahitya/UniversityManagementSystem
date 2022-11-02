@@ -19,6 +19,7 @@ import { AddDepartmentComponent } from './department/add-department/add-departme
 import { RegistrationComponent } from './registration/registration.component';
 import { AddFacultyComponent } from './faculty/add-faculty/add-faculty.component';
 import { AddRegistrationComponent } from './registration/add-registration/add-registration.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddRegistrationComponent } from './registration/add-registration/add-re
     AddDepartmentComponent,
     RegistrationComponent,
     AddFacultyComponent,
-    AddRegistrationComponent
+    AddRegistrationComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
