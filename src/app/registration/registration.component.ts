@@ -2,7 +2,7 @@ import { RegistrationService } from './registration.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 export class Registration{
-  constructor(public id:number,public registrationname: string,public registrationdate:Date, public content:string, public student_Id: number){
+  constructor(public id:number,public name: string,public date:Date, public content:string, public student_Id: number){
 
   }
 }
@@ -41,7 +41,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.deleteRegistration(id, registration).subscribe (
       response => {
         console.log(response);
-        this.message = `Delete of Course ${id} Successful!`;
+        this.message = `Delete of Registration ${id} Successful!`;
         this.retrieveData();
       }
     )

@@ -12,8 +12,8 @@ export class AddRegistrationComponent implements OnInit {
   id = 0;
   registration: Registration = {
     id:this.id,
-    registrationname: '',
-    registrationdate:new Date(),
+    name: '',
+    date:new Date(),
     content:'',
     student_Id: 0
   };
