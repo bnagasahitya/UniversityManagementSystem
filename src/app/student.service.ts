@@ -15,10 +15,10 @@ export class StudentService {
       return this.http.get<Student[]>(`${API_URL}/students`);
     }
     deleteStudent(id: any, student:Student){
-      return this.http.put(`${API_URL}/delete/student/${id}`,null);
+      return this.http.put(`${API_URL}/delete/student/${id}`,student);
     }
     updateStudent(id: any, student: Student){
-      return this.http.put(`${API_URL}/student/${id}`,student);
+      return this.http.put(`${API_URL}/updatestudent/${id}`,student);
     }
     retrieveStudent(id: any){
       return this.http.get<Student>(`${API_URL}/student/${id}`);

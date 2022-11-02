@@ -40,7 +40,7 @@ export class AddRegistrationComponent implements OnInit {
   }
   saveRegistrationDetails(){
     if(this.id == -1) { //=== ==
-      this.registrationService.createRegistration(this.registration)
+      this.registrationService.createRegistration(this.registration, this.registration.student_Id)
           .subscribe (
             data => {
               console.log(data);
@@ -58,7 +58,7 @@ export class AddRegistrationComponent implements OnInit {
       //   //     )
       // }
        else {
-        this.registrationService.updateRegistration(this.id, this.registration)
+        this.registrationService.updateRegistration(this.id, this.registration, this.registration.student_Id)
             .subscribe (
               data => {
                 console.log(data)

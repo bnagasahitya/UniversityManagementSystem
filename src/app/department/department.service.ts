@@ -19,7 +19,7 @@ export class DepartmentService {
     return this.http.post(`${API_URL}/deletedepartment/${id}`,null);
   }
   updateDepartment(id: any, department: Department, cid: any){
-    return this.http.put(`${API_URL}/updatedepartment/${id}/${cid}`,department);
+    return this.http.post(`${API_URL}/updatedepartment/${id}/${cid}`,department);
   }
   retrieveDepartment(id: any){
     return this.http.get<Department>(`${API_URL}/getdepartment/${id}`);
