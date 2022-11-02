@@ -1,4 +1,4 @@
-package com.university.management.model;
+package management.model;
 
 
 import javax.persistence.*;

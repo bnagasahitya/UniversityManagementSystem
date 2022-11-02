@@ -30,7 +30,7 @@ public class DepartmentController {
 		@Autowired
 		CourseRepo courseRepository;
 
-		
+		@CrossOrigin(origins = "http://localhost:4200")
 		@GetMapping("/departments")
 		public ResponseEntity<List<Department>> getAlldepartments() {
 			try {
@@ -47,7 +47,7 @@ public class DepartmentController {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
-  
+		@CrossOrigin(origins = "http://localhost:4200")
   @GetMapping("/getdepartment/{departmentId}")
 		public ResponseEntity<Department> getdepartment(@PathVariable("departmentId") long id) {
 			try {
@@ -65,6 +65,7 @@ public class DepartmentController {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
+		@CrossOrigin(origins = "http://localhost:4200")
 		@PostMapping("/updatedepartment/{id}/{courseId}")
 		public ResponseEntity<Department> updatedepartment(@PathVariable("id") long id,@PathVariable("courseId") int courseId, @RequestBody Department department) {
 
@@ -83,6 +84,7 @@ public class DepartmentController {
 			}
 		}
 
+		@CrossOrigin(origins = "http://localhost:4200")
 		@PostMapping("/createdepartment/{courseId}")
 		public ResponseEntity<Department> createdepartment(@PathVariable("courseId") int id,@RequestBody Department departmentRequest) {
 			try {
@@ -97,6 +99,7 @@ public class DepartmentController {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
+		@CrossOrigin(origins = "http://localhost:4200")
 		@PostMapping("/deletedepartment/{id}")
 		public ResponseEntity<HttpStatus> deletedepartment(@PathVariable("id") long id) {
 			try {
