@@ -22,7 +22,7 @@ export class DepartmentService {
     return this.http.put(`${API_URL}/updatedepartment/${id}/${cid}`,department);
   }
   retrieveDepartment(id: any){
-    return this.http.get<Department>(`${API_URL}/department/${id}`);
+    return this.http.get<Department>(`${API_URL}/getdepartment/${id}`);
   }
   addDepartment(department: Department, id: any){
     return this.http.post(
