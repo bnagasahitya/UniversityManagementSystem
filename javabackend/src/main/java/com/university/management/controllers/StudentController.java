@@ -14,15 +14,16 @@ import java.util.Optional;
 @RestController
 public class StudentController {
 
-
+	
     @Autowired
     private StudentRepo repo;
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/student")
     public void createStudent(@RequestBody Student user) {
         repo.save(user);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value = "/student")
     public Student updateStudent(@RequestBody Student user) {
 
@@ -42,6 +43,7 @@ public class StudentController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/student/{id}")
     public Student getStudent(@PathVariable( name = "id") Integer id) {
 
@@ -49,15 +51,16 @@ public class StudentController {
         return repo.findById(id).orElse(new Student());
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/students")
     public List<Student> getStudentAll() {
 
         return repo.findAll();
     }
 
-
-
-    @DeleteMapping(value = "/student/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping(value = "/delete/student/{id}")
+//    @DeleteMapping(value = "/student/{id}")
     public void deleteStudent(@PathVariable( name = "id") Integer id) {
 
         Optional<Student> stu = repo.findById(id);

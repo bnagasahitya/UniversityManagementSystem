@@ -14,10 +14,10 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "Course_Name")
+    @Column(name = "coursename")
     private  String name;
 
-    @Column(name = "Course_Type")
+    @Column(name = "coursetype")
     private String type;
 
     @Column(name = "Prerequisite")

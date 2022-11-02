@@ -14,17 +14,17 @@ import java.sql.Date;
 public class Registration {
 
     @Id
-    @Column(name ="Registration_ID")
+    @Column(name ="registrationid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "Registration_Name")
+    @Column(name = "registrationname")
     private String name;
 
-    @Column(name = "Registration_Date")
+    @Column(name = "registrationdate")
     private Date date;
 
-    @Column(name = "Content")
+    @Column(name = "content")
     private String content;
 
     @OneToOne(cascade = CascadeType.ALL)
