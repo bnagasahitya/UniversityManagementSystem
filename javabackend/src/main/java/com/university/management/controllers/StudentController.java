@@ -15,52 +15,55 @@ import java.util.Optional;
 public class StudentController {
 
 
-    @Autowired
-    private StudentRepo repo;
+  @Autowired
+  private StudentRepo repo;
+  @CrossOrigin(origins = "http://localhost:4200")
+  @PostMapping(value = "/student")
+  public void createStudent(@RequestBody Student user) {
+    repo.save(user);
+  }
 
-    @PostMapping(value = "/student")
-    public void createStudent(@RequestBody Student user) {
-        repo.save(user);
+  @CrossOrigin(origins = "http://localhost:4200")
+  @PutMapping(value = "/student")
+  public Student updateStudent(@RequestBody Student user) {
+
+    Optional<Student> student = repo.findById( user.getId());
+    if (student.isPresent()) {
+      Student stu = student.get();
+      stu.setStudentPhone(user.getStudentPhone());
+      stu.setStudentEmail(user.getStudentEmail());
+      stu.setStudentAddress(user.getStudentAddress());
+      stu.setName(user.getName());
+      stu.setStudentDOB(user.getStudentDOB());
+      repo.save(stu);
+      return stu;
     }
-
-    @PutMapping(value = "/student")
-    public Student updateStudent(@RequestBody Student user) {
-
-       Optional<Student> student = repo.findById( user.getId());
-        if (student.isPresent()) {
-            Student stu = student.get();
-            stu.setStudentPhone(user.getStudentPhone());
-            stu.setStudentEmail(user.getStudentEmail());
-            stu.setStudentAddress(user.getStudentAddress());
-            stu.setName(user.getName());
-            stu.setStudentDOB(user.getStudentDOB());
-            repo.save(stu);
-            return stu;
-        }
-        else {
-            throw new RuntimeException("Data Not Found");
-        }
+    else {
+      throw new RuntimeException("Data Not Found");
     }
+  }
 
-    @GetMapping(value = "/student/{id}")
-    public Student getStudent(@PathVariable( name = "id") Integer id) {
-
-
-        return repo.findById(id).orElse(new Student());
-    }
-
-    @GetMapping(value = "/students")
-    public List<Student> getStudentAll() {
-
-        return repo.findAll();
-    }
+  @CrossOrigin(origins = "http://localhost:4200")
+  @GetMapping(value = "/student/{id}")
+  public Student getStudent(@PathVariable( name = "id") Integer id) {
 
 
+    return repo.findById(id).orElse(new Student());
+  }
 
-    @DeleteMapping(value = "/student/{id}")
-    public void deleteStudent(@PathVariable( name = "id") Integer id) {
+  @CrossOrigin(origins = "http://localhost:4200")
+  @GetMapping(value = "/students")
+  public List<Student> getStudentAll() {
 
-        Optional<Student> stu = repo.findById(id);
+    return repo.findAll();
+  }
+
+  @CrossOrigin(origins = "http://localhost:4200")
+  @PutMapping(value = "/delete/student/{id}")
+//    @DeleteMapping(value = "/student/{id}")
+  public void deleteStudent(@PathVariable( name = "id") Integer id) {
+
+    Optional<Student> stu = repo.findById(id);
 
         if (stu.isPresent()) {
             repo.deleteById(id);
