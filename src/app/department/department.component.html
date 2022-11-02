@@ -18,13 +18,13 @@
 
     <tbody>
         <tr *ngFor = "let department of department">
-            <td> {{department.id}}</td> 
-            <td> {{department.name}}</td>
-            <td> {{department.description}}</td>
+            <td> {{department.departmentId}}</td> 
+            <td> {{department.departmentName}}</td>
+            <td> {{department.deptDescription}}</td>
             <td> {{department.location}}</td>
         
-            <td><button (click)="updateDepartment(department.id)" class="btn btn-success">Update</button></td>
-            <td><button (click)="deleteDepartment(department.id, department)" class="btn btn-warning">Delete</button></td>
+            <td><button (click)="updateDepartment(department.departmentId)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteDepartment(department.departmentId, department)" class="btn btn-warning">Delete</button></td>
 
         </tr>
     </tbody>
