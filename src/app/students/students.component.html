@@ -1,5 +1,6 @@
 <h1> Students list
 <button (click) = "addStudent()" routerLink="/add" class="btn btn-success">Add Student</button></h1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
 <div class="container">
   <table class="table">
     <thead>
