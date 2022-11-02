@@ -1,24 +1,24 @@
 <!-- constructor(public id:number,public name: string,public type:string, public preRequest:string, public duration: string, public credits: number){ -->
     <h1> Registrations Add/Update</h1>
     <div class = "container">
-    <fieldset class = "form-group">
-        <label>Name</label>
+    <!-- <fieldset class = "form-group">
+        <label>ID</label>
         <input type = "text"[(ngModel)] = "registration.id" class = "form-control" name = "name" required = "required">
-    </fieldset>
+    </fieldset> -->
     <fieldset class = "form-group">
-        <label>Type</label> 
+        <label>Name</label> 
     <input type = "text" [(ngModel)] = "registration.name" class = "form-control" name = "type" required = "required">
     </fieldset>
     <fieldset class = "form-group">
-        <label>Prerequisite</label> 
+        <label>Date</label> 
     <input type = "datetime" [(ngModel)] = "registration.date" class = "form-control" name = "preRequest" required = "required">
     </fieldset>
     <fieldset class = "form-group">
-        <label>Duration</label> 
+        <label>Content</label> 
     <input type = "text" [(ngModel)] = "registration.content" class = "form-control" name = "duration" required = "required">
     </fieldset>
     <fieldset class = "form-group">
-        <label>Credits</label> 
+        <label>Student ID</label> 
     <input type = "text" [(ngModel)] = "registration.student_Id" class = "form-control" name = "credits" required = "required">
     </fieldset>
     

@@ -20,7 +20,7 @@ export class CourseService {
     return this.http.put(`${API_URL}/delete/course/${id}`,null);
   }
   updateCourse(id: any, course: Courses){
-    return this.http.put(`${API_URL}/course/${id}`,course);
+    return this.http.put(`${API_URL}/updatecourse/${id}`,course);
   }
   retrieveCourse(id: any){
     return this.http.get<Courses>(`${API_URL}/course/${id}`);

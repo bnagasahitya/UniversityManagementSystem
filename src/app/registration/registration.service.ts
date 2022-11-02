@@ -17,15 +17,16 @@ export class RegistrationService {
   deleteRegistration(id: any, registration:Registration){
     return this.http.put(`${API_URL}/delete/registration/${id}`,null);
   }
-  updateRegistration(id: any, registration: Registration){
-    return this.http.put(`${API_URL}/registration/${id}`,registration);
+  updateRegistration(id: any, registration: Registration, sid: any){
+    return this.http.post(`${API_URL}/updateRegistration/${id}/${sid}`,registration);
   }
+
   retrieveRegistration(id: any){
     return this.http.get<Registration>(`${API_URL}/registration/${id}`);
   }
-  createRegistration(registration: Registration){
+  createRegistration(registration: Registration, id: any){
     return this.http.post(
-              `${API_URL}/registration`
+              `${API_URL}/register/${id}`
                 , registration);
   }
 
