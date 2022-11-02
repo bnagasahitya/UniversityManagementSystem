@@ -44,7 +44,7 @@ constructor(private studentService: StudentService,
     this.studentService.deleteStudent(id, student).subscribe (
       response => {
         console.log(response);
-        this.message = `Delete of Course ${id} Successful!`;
+        this.message = `Delete of Student ${id} Successful!`;
         this.retrieveData();
       }
     )
