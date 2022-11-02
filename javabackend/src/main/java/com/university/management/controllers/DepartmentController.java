@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.university.management.model.Course;
 import com.university.management.model.Department;
-import com.university.management.repository.CourseReposiory;
+import com.university.management.repository.CourseRepo;
 import com.university.management.repository.DepartmentReposiory;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class DepartmentController {
 
@@ -27,7 +28,7 @@ public class DepartmentController {
 		DepartmentReposiory departmentRepository;
 
 		@Autowired
-		CourseReposiory courseRepository;
+		CourseRepo courseRepository;
 
 		
 		@GetMapping("/departments")
@@ -46,9 +47,8 @@ public class DepartmentController {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
-		@Modifying
 		@PostMapping("/updatedepartment/{id}/{courseId}")
-		public ResponseEntity<Department> updatedepartment(@PathVariable("id") long id,@PathVariable("courseId") long courseId, @RequestBody Department department) {
+		public ResponseEntity<Department> updatedepartment(@PathVariable("id") long id,@PathVariable("courseId") int courseId, @RequestBody Department department) {
 
 			Optional<Department> departmentData = departmentRepository.findById(id);
 //			Optional<Course> courseData = courseRepository.findById(department.getCourse().getCourseId());
@@ -66,7 +66,7 @@ public class DepartmentController {
 		}
 
 		@PostMapping("/createdepartment/{courseId}")
-		public ResponseEntity<Department> createdepartment(@PathVariable("courseId") long id,@RequestBody Department departmentRequest) {
+		public ResponseEntity<Department> createdepartment(@PathVariable("courseId") int id,@RequestBody Department departmentRequest) {
 			try {
 				
 				Department newDepartment = courseRepository.findById(id).map(course -> {

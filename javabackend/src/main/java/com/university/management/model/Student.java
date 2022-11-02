@@ -11,16 +11,16 @@ public class Student {
     @Column(name ="Student_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "Student_Name")
+    @Column(name = "studentname")
     private String name;
 
-    @Column(name = "Student_DOB")
+    @Column(name = "studentdob")
     private String studentDOB;
 
-    @Column(name = "Student_Email")
+    @Column(name = "studentemail")
     private String studentEmail;
 
-    @Column(name = "Student_Phone")
+    @Column(name = "studentphone")
     private Integer studentPhone;
 
     @OneToOne(mappedBy = "student", fetch = FetchType.LAZY)
@@ -42,7 +42,7 @@ public class Student {
         this.studentAddress = studentAddress;
     }
 
-    @Column(name = "Student_ADDRESS")
+    @Column(name = "studentaddress")
     private Integer studentAddress;
 
     public Integer getId() {
