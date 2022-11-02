@@ -46,18 +46,10 @@ export class CoursesComponent implements OnInit {
   }
   updateCourse(id: any){
     console.log(`update ${id}`)
-    this.router.navigate(['add',id])
-    // this.courseService.updateCourse(id).subscribe (
-    //   response => {
-    //     console.log(response);
-    //     this.message = `Delete of Course ${id} Successful!`;
-    //     this.retrieveData();
-    //   }
-    // )
-  
-     
-    
+    this.router.navigate(['add',id]) 
   }
+
+  
   addCourse() {
     this.router.navigate(['add',-1])
   }
