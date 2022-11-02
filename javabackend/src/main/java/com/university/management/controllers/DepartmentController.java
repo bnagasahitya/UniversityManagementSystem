@@ -47,6 +47,24 @@ public class DepartmentController {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
+  
+  @GetMapping("/getdepartment/{departmentId}")
+		public ResponseEntity<Department> getdepartment(@PathVariable("departmentId") long id) {
+			try {
+
+				Optional<Department> departmentData = departmentRepository.findById(id);
+
+				if (departmentData.isPresent()) {
+					Department department = departmentData.get();
+					return new ResponseEntity<>(department, HttpStatus.OK);
+				} else {
+					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				}
+
+			} catch (Exception e) {
+				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
 		@PostMapping("/updatedepartment/{id}/{courseId}")
 		public ResponseEntity<Department> updatedepartment(@PathVariable("id") long id,@PathVariable("courseId") int courseId, @RequestBody Department department) {
 
