@@ -16,7 +16,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
-  { path: '', component: StudentsComponent  },//canActivate, RouteGuardService
+  { path: '', component: WelcomeComponent  },//canActivate, RouteGuardService
   { path: 'login', component: LoginComponent },
   { path: 'welcome', component: WelcomeComponent},
    { path: 'students', component: StudentsComponent },
